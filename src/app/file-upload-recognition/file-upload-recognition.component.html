@@ -1,0 +1,17 @@
+<section id="file-upload-recognition">
+    <h2>Reconnaissance depuis une photo</h2>
+    <article class="loader" *ngIf="loading; else elseBlock">
+        <mat-spinner></mat-spinner>
+    </article>
+    <ng-template #elseBlock>
+        <input type="file" (change)="fileChangeEvent($event)">
+        <mat-chip-list aria-label="Fish selection">
+            <mat-chip color="warn" selected *ngFor="let prediction of predictions">{{ prediction.className }} |
+                {{ roundProbability(prediction.probability) }}</mat-chip>
+        </mat-chip-list>
+
+        <img [src]="imageSrc" #img *ngIf="imageSrc" />
+
+
+    </ng-template>
+</section>

@@ -1,0 +1,8 @@
+<section id="video-recognition">
+    <h2>Reconnaissance depuis une caméra</h2>
+    <mat-chip-list aria-label="Fish selection">
+        <mat-chip color="warn" selected *ngFor="let prediction of predictions">{{ prediction.className }}
+            {{ roundProbability(prediction.probability) }}</mat-chip>
+    </mat-chip-list>
+    <video autoplay playsinline muted id="webcam" width="100%" height="300" #video></video>
+</section>
